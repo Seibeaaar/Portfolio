@@ -40,7 +40,7 @@ const Ball: React.FC<IBallProps> = ({ icon }) => {
 
 const BallCanvas: React.FC<IBallProps> = ({ icon }) => {
   return (
-    <Canvas frameloop="demand" gl={{ preserveDrwaingBuffer: true }}>
+    <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />
         <Ball icon={icon} />
