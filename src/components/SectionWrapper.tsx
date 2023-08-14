@@ -1,5 +1,5 @@
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 import { styles } from "../styles";
 import { staggerContainer } from "../utils/motion";
@@ -11,7 +11,7 @@ interface ISecctionWrapperProps {
 
 const SectionWrapper: React.FC<ISecctionWrapperProps> = ({ children, id }) => (
   <motion.section
-    variants={staggerContainer()}
+    variants={staggerContainer() as unknown as Variants}
     whileInView='show'
     initial='hidden'
     viewport={{ once: true, amount: 0.25 }}
