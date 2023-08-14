@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import SectionWrapper from "./SectionWrapper";
 import { slideIn } from "../utils/motion";
+import * as React from "react";
 
 const Contact = () => {
   const [name, setName] = useState<string>("");
@@ -15,7 +16,7 @@ const Contact = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [successfullySent, setSuccessfullySent] = useState<boolean>(false);
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setLoading(true);
     emailjs.send(
@@ -32,7 +33,7 @@ const Contact = () => {
     ).then(() => {
       setSuccessfullySent(true);
       alert('Thank you, your email has been sent');
-    }).catch(e => {
+    }).catch(() => {
       alert('Hmm, something went wrong');
     }).finally(() => {
       setLoading(false);
